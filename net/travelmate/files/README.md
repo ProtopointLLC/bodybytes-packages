@@ -110,6 +110,8 @@ automatically (re)connnects to configured APs/hotspots as they become available.
 | trm_useragent      | Mozilla/5.0 ...                    | pre-configured user agents that will be used for connectivity- and captive portal checks              |
 | trm_nice           | 0, normal priority                 | change the priority of the travelmate background processing                                           |
 | trm_mail           | 0, disabled                        | sends notification e-mails after every succesful uplink connect                                       |
+| trm_oneshot        | 0, disabled                        | (bodybytes) make one bounded connect attempt on boot, then exit instead of running the persistent retry loop - `boot()` normally never starts anything at all (see travelmate.init), this makes it actually run once when enabled |
+| trm_ifdown_disable | 0, disabled                        | (bodybytes) on a debounced, sustained drop of `trm_iface`, disable its STA `wifi-iface` so `wpa_supplicant` stops retrying on its own - mainly useful together with `trm_oneshot`, where nothing is left running afterward to notice a later drop by itself |
 | trm_mailreceiver   | -, not set                         | e-mail receiver address for travelmate notifications                                                  |
 | trm_mailsender     | no-reply@travelmate                | e-mail sender address for travelmate notifications                                                    |
 | trm_mailtopic      | travelmate connection to '<sta>'   | topic for travelmate notification E-Mails                                                             |
