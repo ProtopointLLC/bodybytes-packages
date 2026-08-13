@@ -37,6 +37,10 @@ while :; do
 		f_log "info" "travelmate instance started ::: action: ${trm_action}, pid: ${$}"
 		f_main
 		trm_action=""
+		if [ "${trm_oneshot}" = "1" ]; then
+			f_log "info" "travelmate instance stopped ::: oneshot mode, one bounded pass per invocation"
+			break
+		fi
 	fi
 
 	# wait for next action
